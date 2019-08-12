@@ -45,7 +45,7 @@ public class goodsInfoDao extends baseDao {
                 paraList.add("%" + good.getFlag()+ "%");
                 }
             }
-
+            //safafsa
             pra=conn.prepareStatement(sf.toString());
             if (paraList!=null&&paraList.size()>0){
                 for (int i=0;i<paraList.size();i++){
