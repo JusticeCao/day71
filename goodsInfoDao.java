@@ -44,8 +44,17 @@ public class goodsInfoDao extends baseDao {
                 sf.append("and flag like ?");
                 paraList.add("%" + good.getFlag()+ "%");
                 }
+
+            if (good.getCreated()!=null){
+                sf.append("and created like ?");
+                paraList.add("%"+good.getCreated()+"%");
             }
-            //safafsa
+            if (good.getCreated_date()!=null){
+                sf.append("and created_date like ?");
+                paraList.add("%"+good.getCreated_date()+"%");
+                }
+            }
+
             pra=conn.prepareStatement(sf.toString());
             if (paraList!=null&&paraList.size()>0){
                 for (int i=0;i<paraList.size();i++){
@@ -63,6 +72,8 @@ public class goodsInfoDao extends baseDao {
                 entity.setGoodsInfo_description(rs.getString("goodsInfo_description"));
                 entity.setGoods_stock(rs.getString("goods_stock"));
                 entity.setFlag(rs.getString("flag"));
+                entity.setCreated(rs.getString("created"));
+                entity.setCreated_date(rs.getString("created_date"));
                 list.add(entity);
 
             }
@@ -76,7 +87,7 @@ public class goodsInfoDao extends baseDao {
 
     public int addGoods(goodsInfo good){
         StringBuffer sf = new StringBuffer();
-        sf.append("insert into goodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_description,goods_stock,flag)values(?,?,?,?,?,?)");
+        sf.append("insert into goodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_description,goods_stock,flag,created,created_date)values(?,?,?,?,?,?,?,?)");
         ArrayList<Object> list = new ArrayList<>();
         list.add(good.getGoodsInfo_name());
         list.add(good.getGoodsInfo_pic());
@@ -84,6 +95,8 @@ public class goodsInfoDao extends baseDao {
         list.add(good.getGoodsInfo_description());
         list.add(good.getGoods_stock());
         list.add(good.getFlag());
+        list.add(good.getCreated());
+        list.add(good.getCreated_date());
 
         return this.executeUpdate(sf.toString(),list);
     }
@@ -105,6 +118,8 @@ public class goodsInfoDao extends baseDao {
         sf.append(" , goodsInfo_description = ?");
         sf.append(" , goods_stock = ?");
         sf.append(" , flag = ?");
+        sf.append(" , created = ?");
+        sf.append(" , created_date = ?");
         sf.append(" where id = ?");
 
         ArrayList<Object> list = new ArrayList<>();
@@ -114,6 +129,8 @@ public class goodsInfoDao extends baseDao {
         list.add(good.getGoodsInfo_description());
         list.add(good.getGoods_stock());
         list.add(good.getFlag());
+        list.add(good.getCreated());
+        list.add(good.getCreated_date());
         list.add(good.getId());
 
         return this.executeUpdate(sf.toString(),list);

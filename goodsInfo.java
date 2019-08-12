@@ -8,11 +8,13 @@ public class goodsInfo {
     private String goodsInfo_description;
     private String goods_stock;
     private String flag;
+    private String created;
+    private String created_date;
 
     public goodsInfo() {
     }
 
-    public goodsInfo(int id, String goodsInfo_name, String goodsInfo_pic, String goodsInfo_price, String goodsInfo_description, String goods_stock, String flag) {
+    public goodsInfo(int id, String goodsInfo_name, String goodsInfo_pic, String goodsInfo_price, String goodsInfo_description, String goods_stock, String flag, String created, String created_date) {
         this.id = id;
         this.goodsInfo_name = goodsInfo_name;
         this.goodsInfo_pic = goodsInfo_pic;
@@ -20,6 +22,8 @@ public class goodsInfo {
         this.goodsInfo_description = goodsInfo_description;
         this.goods_stock = goods_stock;
         this.flag = flag;
+        this.created = created;
+        this.created_date = created_date;
     }
 
     public int getId() {
@@ -78,6 +82,22 @@ public class goodsInfo {
         this.flag = flag;
     }
 
+    public String getCreated() {
+        return created;
+    }
+
+    public void setCreated(String created) {
+        this.created = created;
+    }
+
+    public String getCreated_date() {
+        return created_date;
+    }
+
+    public void setCreated_date(String created_date) {
+        this.created_date = created_date;
+    }
+
     @Override
     public String toString() {
         return "goodsInfo{" +
@@ -88,6 +108,8 @@ public class goodsInfo {
                 ", goodsInfo_description='" + goodsInfo_description + '\'' +
                 ", goods_stock='" + goods_stock + '\'' +
                 ", flag='" + flag + '\'' +
+                ", created='" + created + '\'' +
+                ", created_date='" + created_date + '\'' +
                 '}';
     }
 }
