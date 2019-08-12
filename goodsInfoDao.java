@@ -87,11 +87,11 @@ public class goodsInfoDao extends baseDao {
 
     public int addGoods(goodsInfo good){
         StringBuffer sf = new StringBuffer();
-        sf.append("insert into goodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_description,goods_stock,flag,created,created_date)values(?,?,?,?,?,?,?,?)");
+        sf.append("insert into goodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_price,goodsInfo_description,goods_stock,flag,created,created_date)values(?,?,?,?,?,?,?,?)");
         ArrayList<Object> list = new ArrayList<>();
         list.add(good.getGoodsInfo_name());
         list.add(good.getGoodsInfo_pic());
-        list.add(good.getGoodsInfo_description());
+        list.add(good.getGoodsInfo_price());
         list.add(good.getGoodsInfo_description());
         list.add(good.getGoods_stock());
         list.add(good.getFlag());
