@@ -10,6 +10,7 @@ public class goodsInfo {
     private String flag;
     private String created;
     private String created_date;
+    private User user;
 
     public goodsInfo() {
     }
