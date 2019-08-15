@@ -4,6 +4,7 @@ public class User {
     private int uid;
     private String username;
     private String password;
+    private String confirm_pwd;
     private String sex;
     private String hobbys;
     private String phone;
@@ -14,10 +15,11 @@ public class User {
     public User() {
     }
 
-    public User(int uid, String username, String password, String sex, String hobbys, String phone, String email, String addrs, String flag) {
+    public User(int uid, String username, String password, String confirm_pwd, String sex, String hobbys, String phone, String email, String addrs, String flag) {
         this.uid = uid;
         this.username = username;
         this.password = password;
+        this.confirm_pwd = confirm_pwd;
         this.sex = sex;
         this.hobbys = hobbys;
         this.phone = phone;
@@ -48,6 +50,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirm_pwd() {
+        return confirm_pwd;
+    }
+
+    public void setConfirm_pwd(String confirm_pwd) {
+        this.confirm_pwd = confirm_pwd;
     }
 
     public String getSex() {
@@ -104,6 +114,7 @@ public class User {
                 "uid=" + uid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", confirm_pwd='" + confirm_pwd + '\'' +
                 ", sex='" + sex + '\'' +
                 ", hobbys='" + hobbys + '\'' +
                 ", phone='" + phone + '\'' +

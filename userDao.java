@@ -31,12 +31,16 @@ public class userDao extends baseDao {
                 sf.append(" and password like ?");
                 paraList.add("%"+user.getPassword()+"%");
             }
+            if (user.getConfirm_pwd()!= null){
+                sf.append(" and confirm_pwd like ?");
+                paraList.add("%"+user.getConfirm_pwd()+"%");
+            }
             if (user.getSex()!= null){
                 sf.append(" and sex like ?");
                 paraList.add("%"+user.getSex()+"%");
             }
             if (user.getHobbys()!=null){
-                sf.append(" and sex like ? ");
+                sf.append(" and hobbys like ? ");
                 paraList.add("%"+user.getHobbys()+"%");
             }
             if (user.getPhone()!= null){
@@ -71,6 +75,7 @@ public class userDao extends baseDao {
                 entity.setUid(rs.getInt("uid"));
                 entity.setUsername(rs.getString("username"));
                 entity.setPassword(rs.getString("password"));
+                entity.setConfirm_pwd(rs.getString("confirm_pwd"));
                 entity.setSex(rs.getString("sex"));
                 entity.setHobbys(rs.getString("hobbys"));
                 entity.setPhone(rs.getString("phone"));
@@ -88,10 +93,11 @@ public class userDao extends baseDao {
     }
 
     public int addUser(User user){
-        String sql="insert into user (username,password,sex,hobbys,phone,email,addrs,flag)values(?,?,?,?,?,?,?,?)";
+        String sql="insert into user (username,password,confirm_pwd,sex,hobbys,phone,email,addrs,flag)values(?,?,?,?,?,?,?,?,?)";
         ArrayList<Object> list = new ArrayList<>();
         list.add(user.getUsername());
         list.add(user.getPassword());
+        list.add(user.getConfirm_pwd());
         list.add(user.getSex());
         list.add(user.getHobbys());
         list.add(user.getPhone());
@@ -115,6 +121,7 @@ public class userDao extends baseDao {
         sf.append("update user set ");
         sf.append(" username = ?");
         sf.append(" , password = ?");
+        sf.append(" , confirm_pwd = ?");
         sf.append(" , sex = ?");
         sf.append(" , hobbys = ?");
         sf.append(" , phone = ?");
@@ -125,6 +132,7 @@ public class userDao extends baseDao {
         ArrayList<Object> list = new ArrayList<>();
         list.add(user.getUsername());
         list.add(user.getPassword());
+        list.add(user.getConfirm_pwd());
         list.add(user.getSex());
         list.add(user.getHobbys());
         list.add(user.getPhone());
