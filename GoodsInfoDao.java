@@ -4,17 +4,17 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class goodsInfoDao extends baseDao {
-    public List<goodsInfo> findGoodsInfo(goodsInfo good){
+public class GoodsInfoDao extends BaseDao {
+    public List<GoodsInfo> findGoodsInfo(GoodsInfo good){
         Connection conn = null;
         PreparedStatement pra =null;
         ResultSet rs=null;
-        ArrayList<goodsInfo> list = new ArrayList<>();
+        ArrayList<GoodsInfo> list = new ArrayList<>();
     try {
         conn = this.getConnection();
         List<Object>paraList=new ArrayList();
         StringBuffer sf = new StringBuffer();
-        sf.append("select *  from goodsInfo where 1=1");
+        sf.append("select *  from GoodsInfo where 1=1");
         if (good!=null){
             if (good.getId()>0){
                 sf.append(" and id = ? ");
@@ -64,7 +64,7 @@ public class goodsInfoDao extends baseDao {
             rs=pra.executeQuery();
 
             while (rs.next()){
-                goodsInfo entity = new goodsInfo();
+                GoodsInfo entity = new GoodsInfo();
                 entity.setId(rs.getInt("id"));
                 entity.setGoodsInfo_name(rs.getString("goodsInfo_name"));
                 entity.setGoodsInfo_pic(rs.getString("goodsInfo_pic"));
@@ -85,9 +85,9 @@ public class goodsInfoDao extends baseDao {
         return list;
     }
 
-    public int addGoods(goodsInfo good){
+    public int addGoods(GoodsInfo good){
         StringBuffer sf = new StringBuffer();
-        sf.append("insert into goodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_price,goodsInfo_description,goods_stock,flag,created,created_date)values(?,?,?,?,?,?,?,?)");
+        sf.append("insert into GoodsInfo(goodsInfo_name,goodsInfo_pic,goodsInfo_price,goodsInfo_description,goods_stock,flag,created,created_date)values(?,?,?,?,?,?,?,?)");
         ArrayList<Object> list = new ArrayList<>();
         list.add(good.getGoodsInfo_name());
         list.add(good.getGoodsInfo_pic());
@@ -101,17 +101,17 @@ public class goodsInfoDao extends baseDao {
         return this.executeUpdate(sf.toString(),list);
     }
 
-    public int deleteGoods(goodsInfo good){
-        String sql="delete from goodsInfo where id = ?";
+    public int deleteGoods(GoodsInfo good){
+        String sql="delete from GoodsInfo where id = ?";
         ArrayList<Object> list = new ArrayList<>();
         list.add(good.getId());
 
         return this.executeUpdate(sql,list);
     }
 
-    public int UpdateGoods(goodsInfo good){
+    public int UpdateGoods(GoodsInfo good){
         StringBuffer sf = new StringBuffer();
-        sf.append("update goodsInfo set");
+        sf.append("update GoodsInfo set");
         sf.append(" goodsInfo_name = ?");
         sf.append(" , goodsInfo_pic = ?");
         sf.append(" , goodsInfo_price = ?");

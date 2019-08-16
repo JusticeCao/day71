@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class userDao extends baseDao {
+public class UserDao extends BaseDao {
     public List<User> findUser(User user){
         Connection conn=null;
         PreparedStatement pra=null;

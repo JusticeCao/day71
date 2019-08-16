@@ -1,6 +1,6 @@
 package com.util.Dao;
 
-public class goodsInfo {
+public class GoodsInfo {
     private int id;
     private String goodsInfo_name;
     private String goodsInfo_pic;
@@ -10,12 +10,11 @@ public class goodsInfo {
     private String flag;
     private String created;
     private String created_date;
-    private User user;
 
-    public goodsInfo() {
+    public GoodsInfo() {
     }
 
-    public goodsInfo(int id, String goodsInfo_name, String goodsInfo_pic, String goodsInfo_price, String goodsInfo_description, String goods_stock, String flag, String created, String created_date) {
+    public GoodsInfo(int id, String goodsInfo_name, String goodsInfo_pic, String goodsInfo_price, String goodsInfo_description, String goods_stock, String flag, String created, String created_date) {
         this.id = id;
         this.goodsInfo_name = goodsInfo_name;
         this.goodsInfo_pic = goodsInfo_pic;
@@ -101,7 +100,7 @@ public class goodsInfo {
 
     @Override
     public String toString() {
-        return "goodsInfo{" +
+        return "GoodsInfo{" +
                 "id=" + id +
                 ", goodsInfo_name='" + goodsInfo_name + '\'' +
                 ", goodsInfo_pic='" + goodsInfo_pic + '\'' +

@@ -3,7 +3,7 @@ package com.util.Dao;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class baseDao {
+public class BaseDao {
     private static final String DRIVER_CLASS="com.mysql.jdbc.Driver";
     private static final String URL="jdbc:mysql://localhost:3306/demo5";
     private static final String USERNAME="root";
