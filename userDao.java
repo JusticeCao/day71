@@ -92,6 +92,7 @@ public class userDao extends baseDao {
         return list;
     }
 
+
     public int addUser(User user){
         String sql="insert into user (username,password,confirm_pwd,sex,hobbys,phone,email,addrs,flag)values(?,?,?,?,?,?,?,?,?)";
         ArrayList<Object> list = new ArrayList<>();
